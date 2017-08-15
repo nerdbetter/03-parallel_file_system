@@ -2,7 +2,7 @@
   "rules": {
     "no-console": "off",
     "indent": [ "error", 2 ],
-    "eslint quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "semi": ["error", "always"],
     "linebreak-style": [ "error", "unix" ]
   },
