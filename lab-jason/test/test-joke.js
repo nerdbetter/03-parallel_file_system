@@ -7,7 +7,7 @@ describe('joke', function(){
     it(`should load txt files in following order : <one.txt>, <two.txt>, <three.txt>`, function(done){
       sut.tellJoke('one.txt', 'two.txt', 'three.txt', (err, data) =>{
         assert.ifError(err);
-        assert.equal(data, '4f6e652c207468');
+        assert.equal(data, 'one.txt'+'two.txt'+'three.txt');
         done();
       });
     });
