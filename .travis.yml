@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "7"
+sudo: required
+before_script:
+  - npm install -g eslint
+script:
+  - eslint .
+  - |
+    (for dir in $(find $PWD -maxdepth 2 -name package.json -printf "%h\n"); do
+      cd $dir && npm install && npm test || exit 1
+    done)
+branches:
+  only:
+  - master
+notifications:
+  email: false
