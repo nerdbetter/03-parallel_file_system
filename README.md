@@ -1,4 +1,4 @@
-![DV](https://www.deltavcodeschool.com/wp-content/uploads/DeltaV.png) 04: Parallel File Processing
+![DV](https://www.deltavcodeschool.com/wp-content/uploads/DeltaV.png) 03: Parallel File Processing
 ===
 
 ## Submission Instructions
