@@ -5,7 +5,7 @@ function tellJoke(filename, cb){
     if (err) {
       cb(err);
     }
-    if(cb) { cb(null, buff.toString('hex').slice(0,9)); }
+    if(cb) { cb(null, buff.toString('hex', 0, 9)); }
   });
 }
 
