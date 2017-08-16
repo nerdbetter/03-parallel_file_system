@@ -5,7 +5,7 @@ function tellJoke(filename, cb){
     if (err) {
       cb(err);
     }
-    cb && cb(null, buff.toString('hex', 0, 7));
+    if(cb) { cb(null, buff.toString('hex').slice(0,9)); }
   });
 }
 
@@ -16,24 +16,24 @@ tellJoke('one.txt',
     })
   )
 );
+
 exports.readJoke = function(file1, file2, file3, cb) {
   var datSmash = '';
   tellJoke(file1, (err, data1) => {
     if (err) { cb(err); }
-    datSmash += data1;
+    if (cb) datSmash += data1;
 
     tellJoke(file2, (err, data2) => {
       if (err) { cb(err); }
 
-      datSmash += data2;
+      if (cb) datSmash += data2;
 
       tellJoke(file3, (err, data3) => {
         if (err) { cb(err); }
         datSmash += data3;
-        console.log(datSmash);
-        cb(err, datSmash);
-
+        if (cb) cb(err, datSmash);
       });
+      console.log(datSmash);
     });
   });
 };
