@@ -27,15 +27,15 @@ exports.readJoke = function(file1, file2, file3, cb) {
 
       datSmash += data2;
 
-      tellJoke(file1, (err, data1) => {
+      tellJoke(file3, (err, data3) => {
         if (err) { return cb(err); }
-        datSmash += data1;
-
-        cb(err, datSmash.toString('hex', 0, 7));
+        datSmash += data3;
         console.log(datSmash);
+        cb(err, datSmash.toString('hex', 0, 7));
+
       });
     });
   });
 };
-
+exports.readJoke('one.txt', 'two.txt', 'three.txt');
 exports.tellJoke = tellJoke;
