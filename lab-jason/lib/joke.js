@@ -3,9 +3,9 @@ const fs = require('fs');
 function tellJoke(filename, cb){
   fs.readFile(`./assets/${filename}`, (err, buff) => {
     if (err) {
-      return cb(err);
+      cb(err);
     }
-    cb && cb(null, buff);
+    cb && cb(null, buff.toString('hex', 0, 7));
   });
 }
 
@@ -19,19 +19,19 @@ tellJoke('one.txt',
 exports.readJoke = function(file1, file2, file3, cb) {
   var datSmash = '';
   tellJoke(file1, (err, data1) => {
-    if (err) { return cb(err); }
+    if (err) { cb(err); }
     datSmash += data1;
 
     tellJoke(file2, (err, data2) => {
-      if (err) { return cb(err); }
+      if (err) { cb(err); }
 
       datSmash += data2;
 
       tellJoke(file3, (err, data3) => {
-        if (err) { return cb(err); }
+        if (err) { cb(err); }
         datSmash += data3;
         console.log(datSmash);
-        cb(err, datSmash.toString('hex', 0, 7));
+        cb(err, datSmash);
 
       });
     });
